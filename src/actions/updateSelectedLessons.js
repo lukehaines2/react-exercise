@@ -1,7 +1,6 @@
-
-export const UPDATE_SELECTED_LESSONS_REQUEST = 'UPDATE_SELECTED_LESSONS_REQUEST'
-
-export const UPDATE_SELECTED_LESSONS_SUCCESS = 'UPDATE_SELECTED_LESSONS_SUCCESS'
+// These can be moved to a constants file if we desire
+export const UPDATE_SELECTED_LESSONS_REQUEST = "UPDATE_SELECTED_LESSONS_REQUEST";
+export const UPDATE_SELECTED_LESSONS_SUCCESS = "UPDATE_SELECTED_LESSONS_SUCCESS";
 
 export const updateSelectedLessonsRequest = data => {
   return {

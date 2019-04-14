@@ -1,5 +1,5 @@
-import SelectedLessons from './SelectedLessons.component'
-import lessonItems from './all-lessons'
+import SelectedLessons from '../components/selectedLessons'
+import lessonItems from '../store/staticData/all-lessons'
 
 const props = {
   selectedLessons: {

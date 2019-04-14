@@ -1,6 +1,6 @@
 import React from 'react'
-import Enzyme, { shallow, render, mount } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import Enzyme, { shallow, render, mount } from 'enzyme/build'
+import Adapter from 'enzyme-adapter-react-16/build'
 import { createSerializer } from 'enzyme-to-json'
 
 // Set the default serializer for Jest to be the from enzyme-to-json
