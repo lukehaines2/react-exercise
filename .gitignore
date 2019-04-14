@@ -24,3 +24,7 @@ yarn-error.log*
 
 *.sublime-project
 *.sublime-workspace
+
+# Webstorm
+.idea/*
+*.iml
