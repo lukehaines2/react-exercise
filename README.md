@@ -42,10 +42,10 @@ In the test suite there are also a few tests for you to write to test some of yo
 * setupTests.js: test setup file
 
 ### Code will need adding to these files:
-* checkboxList.js
-* selectedLessons.js: the main connected component view
-* SelectedLessons.component.test.js: the test suite for the SelectedLessons component
-* selectedLessons.js: the reducer for selected lessons
+* index.js
+* index.js: the main connected component view
+* SelectedLessons.test.js: the test suite for the SelectedLessons component
+* index.js: the reducer for selected lessons
 * styles.scss: the SASS
 * updateSelectedLessons.js
 

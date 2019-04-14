@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
-import CheckboxList from './checkboxList'
-import { connect } from 'react-redux'
-import moize from 'moize'
-import { updateSelectedLessons } from '../actions/updateSelectedLessons'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import moize from "moize";
+
+import CheckboxList from "../checkboxList";
+
+import { updateSelectedLessonsRequest } from "../../actions/updateSelectedLessons";
 
 // Add code in this file to create a component for the main view:
 // You may want to connect component to store props & dispatch 
@@ -26,7 +28,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return {}
+  return {
+    updateSelectedLessons: () => dispatch(updateSelectedLessonsRequest("lesson"))
+  }
 }
 
 export default connect(
