@@ -1,0 +1,28 @@
+// Font styles
+$baselineFont: Helvetica, Arial;
+
+body {
+  padding: 20px;
+  font-family: $baselineFont;
+}
+
+// Button styles
+$btnColor: #46ACCA;
+$btnColorLight: lighten( $btnColor, 15% );
+$btnColorDisabled: rgba( $btnColor, .4 );
+$btnFontColor: #fff;
+$btnFontColorDisabled: rgba( $btnFontColor, .9 );
+
+button {
+  min-width: 5rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  background: $btnColorLight;
+  color: $btnFontColor;
+  font-family: $baselineFont;
+  font-size: 1rem;
+  &:disabled {
+    background: $btnColorDisabled;
+    color: $btnFontColorDisabled;
+  }
+}

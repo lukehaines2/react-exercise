@@ -1,0 +1,11 @@
+.checkboxList {
+  margin-bottom: 1.5rem;
+  .checkboxItem {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0;
+    label {
+      padding-left: 0.4rem;
+    }
+  }
+}

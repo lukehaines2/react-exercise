@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import store from "./store";
 import SelectedLessons from './components/selectedLessons'
 
-import './styles.scss'
+import './style/styles.scss'
 
 
 render(
