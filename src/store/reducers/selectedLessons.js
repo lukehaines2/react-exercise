@@ -3,17 +3,26 @@ import {
   UPDATE_SELECTED_LESSONS_SUCCESS 
 } from '../../actions/updateSelectedLessons'
 
-// add code to make reducer work in this file. 
+const initialState = {
+  selectedLessons: [],
+  isLoading: false
+}
 
-const selectedLessons = (state = {}, action) => {
+const selectedLessons = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_SELECTED_LESSONS_REQUEST:
-      return action.payload
+      return {
+        ...state,
+        isLoading: true
+      }
     case UPDATE_SELECTED_LESSONS_SUCCESS:
-      return action.payload
+      return {
+        state: [...action.data],
+        isLoading: false
+      }
+    default:
+      return state
   }
-
-  return state
 }
 
 export default selectedLessons

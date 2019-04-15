@@ -9,10 +9,32 @@ export const updateSelectedLessonsRequest = data => {
 }
 
 export const updateSelectedLessonsSuccess = data => {
+  // console.log('updateSelectedLessonsSuccess', data);
   return {
     type: UPDATE_SELECTED_LESSONS_SUCCESS,
     data: data
   }
 }
 
-// fake an async request to API here:
+export const updateSelectedLessons = lessonsIds => {
+  return async dispatch => {
+    const body = { lessonsIds: lessonsIds };
+
+    dispatch(updateSelectedLessonsRequest());
+
+    try {
+      // This will error :)
+      await fetch("https://admin.circusstreet.com/fake", {
+        method: "POST",
+        body: body
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setTimeout( () => {
+        // "before catching the error and returning a successful response"
+        dispatch(updateSelectedLessonsSuccess(body.lessonsIds));
+      }, 1500);
+    }
+  };
+};
