@@ -5,6 +5,7 @@ import "./checkboxList.scss";
 
 export default ({ lessons, isLoading, handleSelection}) => {
   const onChange = (e) => {
+    console.log(e.target);
     handleSelection(parseInt(e.target.id), !e.target.checked);
   };
 

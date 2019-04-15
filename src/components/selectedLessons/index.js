@@ -6,6 +6,7 @@ import CheckboxList from "../checkboxList";
 import "./selectedLessons.scss";
 
 import { updateSelectedLessons } from "../../actions/updateSelectedLessons";
+import { getCheckboxLessons } from "../../store/selectors/getCheckboxLessons";
 
 class SelectedLessons extends Component {
   constructor(props) {
@@ -18,16 +19,17 @@ class SelectedLessons extends Component {
   }
 
   handleSelection(id, checked) {
+    console.log(id, checked);
     let newArr = this.state.selectedLessons;
     if (checked) {
       newArr = newArr.filter((lesson) => lesson !== id );
     } else {
       newArr.push(id);
     }
-    console.log("newArr", newArr);
-    this.setState({
-      selectedLessons: newArr
-    });
+    // console.log("newArr", newArr);
+    // this.setState({
+    //   selectedLessons: newArr
+    // });
   }
 
   handleSubmit(e) {
@@ -43,7 +45,7 @@ class SelectedLessons extends Component {
         <form onSubmit={this.handleSubmit}>
           <h3>Lessons List:</h3>
           <CheckboxList {...{lessons, isLoading}} handleSelection={this.handleSelection} />
-          <button disabled>Submit</button>
+          <button disabled={isLoading}>Submit</button>
         </form>
       </div>
     )
@@ -54,7 +56,7 @@ class SelectedLessons extends Component {
 
 const mapStateToProps = state => {
   return {
-    lessons: state.allLessons,
+    lessons: getCheckboxLessons(state),
     isLoading: state.selectedLessons.isLoading
   }
 }
