@@ -5,7 +5,6 @@ import "./checkboxList.scss";
 
 export default ({ lessons, isLoading, handleSelection}) => {
   const onChange = (e) => {
-    console.log(e.target);
     handleSelection(parseInt(e.target.id), !e.target.checked);
   };
 
@@ -14,7 +13,7 @@ export default ({ lessons, isLoading, handleSelection}) => {
       {lessons.map(lesson => (
         <div className="checkboxItem" key={lesson.name}>
           <input 
-            type="checkbox" 
+            type="checkbox"
             id={lesson.id}
             disabled={isLoading}
             onChange={onChange}

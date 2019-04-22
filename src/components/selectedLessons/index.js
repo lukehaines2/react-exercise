@@ -10,7 +10,7 @@ import { getCheckboxLessons } from "../../store/selectors/getCheckboxLessons";
 
 class SelectedLessons extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.handleSelection = this.handleSelection.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
@@ -19,33 +19,32 @@ class SelectedLessons extends Component {
   }
 
   handleSelection(id, checked) {
-    console.log(id, checked);
     let newArr = this.state.selectedLessons;
     if (checked) {
       newArr = newArr.filter((lesson) => lesson !== id );
     } else {
       newArr.push(id);
     }
-    // console.log("newArr", newArr);
-    // this.setState({
-    //   selectedLessons: newArr
-    // });
+    this.setState({
+      selectedLessons: newArr
+    });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     // send the arr
-    // updateSelectedLessons(this.state.selectedLessons)
+    this.props.updateSelectedLessons(this.state.selectedLessons)
   }
 
   render() {
     const { lessons, isLoading } = this.props;
+    const btnDisabled = isLoading || !this.state.selectedLessons.length;
     return (
       <div className="lessonsContainer">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} disabled={true}>
           <h3>Lessons List:</h3>
           <CheckboxList {...{lessons, isLoading}} handleSelection={this.handleSelection} />
-          <button disabled={isLoading}>Submit</button>
+          <button disabled={btnDisabled}>Submit</button>
         </form>
       </div>
     )

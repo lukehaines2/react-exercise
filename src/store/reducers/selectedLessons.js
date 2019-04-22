@@ -17,7 +17,7 @@ const selectedLessons = (state = initialState, action) => {
       }
     case UPDATE_SELECTED_LESSONS_SUCCESS:
       return {
-        state: [...action.data],
+        selectedLessons: [...action.data],
         isLoading: false
       }
     default:

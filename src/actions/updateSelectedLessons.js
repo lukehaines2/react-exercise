@@ -2,24 +2,22 @@
 export const UPDATE_SELECTED_LESSONS_REQUEST = "UPDATE_SELECTED_LESSONS_REQUEST";
 export const UPDATE_SELECTED_LESSONS_SUCCESS = "UPDATE_SELECTED_LESSONS_SUCCESS";
 
-export const updateSelectedLessonsRequest = data => {
+export const updateSelectedLessonsRequest = () => {
   return {
     type: UPDATE_SELECTED_LESSONS_REQUEST
   }
-}
+};
 
 export const updateSelectedLessonsSuccess = data => {
-  // console.log('updateSelectedLessonsSuccess', data);
   return {
     type: UPDATE_SELECTED_LESSONS_SUCCESS,
     data: data
   }
-}
+};
 
 export const updateSelectedLessons = lessonsIds => {
   return async dispatch => {
     const body = { lessonsIds: lessonsIds };
-
     dispatch(updateSelectedLessonsRequest());
 
     try {
