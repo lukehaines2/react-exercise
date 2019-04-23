@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 // import moize from "moize";
 
-import CheckboxList from "../checkboxList";
+import { CheckboxList } from "../checkboxList";
 import "./selectedLessons.scss";
 
 import { updateSelectedLessons } from "../../actions/updateSelectedLessons";
@@ -42,10 +42,12 @@ export class SelectedLessons extends Component {
     const btnDisabled = isLoading || !this.state.selectedLessons.length;
     return (
       <div className="lessonsContainer">
+        <h3>Lessons List:</h3>
         <form onSubmit={this.handleSubmit}>
-          <h3>Lessons List:</h3>
-          <CheckboxList {...{lessons, isLoading}} handleSelection={this.handleSelection} />
-          <button disabled={btnDisabled}>Submit</button>
+          <fieldset disabled={isLoading}>
+            <CheckboxList {...{lessons, isLoading}} handleSelection={this.handleSelection} />
+            <button disabled={btnDisabled}>Submit</button>
+          </fieldset>
         </form>
       </div>
     )

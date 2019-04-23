@@ -1,4 +1,4 @@
-import CheckboxList from "./";
+import { CheckboxList } from "./";
 import lessonsData from "../../store/staticData/all-lessons";
 
 describe("<CheckboxList /> component", () => {

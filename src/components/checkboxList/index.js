@@ -2,8 +2,9 @@ import React from "react";
 
 import "./checkboxList.scss";
 
+export const CheckboxList = props => {
+  const { lessons, isLoading, handleSelection } = props;
 
-export default ({ lessons, isLoading, handleSelection}) => {
   const onChange = (e) => {
     handleSelection(parseInt(e.target.id), !e.target.checked);
   };
