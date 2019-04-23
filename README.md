@@ -1,5 +1,33 @@
 # Circus Street React Exercise
 
+## Luke Haines
+
+Hi guys, just thought I'd put a few notes in here for your perusal.
+
+### Assumptions:
+
+- Lessons data has been pre-fetched from `staticData`.
+- There will never be checked lessons on first render (meaning I built a more naive component).
+
+### Notes:
+
+- Using `isLoading` for network requests and async blocking.
+- Delay included to make sure we see the disabled state while submitting.
+- Didn't use `Moize` package.
+- Testing isn't my strong suit (not required in my day job)! So I didn't go further than writing+passing the suggested examples.
+
+### Structure:
+
+- Components -> compartmentalised JS, SCSS and tests.
+- Actions
+- Store -> Reducers, Static Data, Selectors.
+- Style -> containing a few global styles.
+- Package.json, untouched but modules updated for audit.
+
+Thanks for your time!
+
+<br>
+
 This is a read-only repo. Please fork to your own github and commit your changes there.
 
 ## Description:
