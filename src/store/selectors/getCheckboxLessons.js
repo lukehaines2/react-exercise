@@ -1,5 +1,4 @@
 export const getCheckboxLessons = state => {
-  console.log(state)
   return mapLessonsToCheckbox(state.allLessons, state.selectedLessons.selectedLessons) || [];
 };
 

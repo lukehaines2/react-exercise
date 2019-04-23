@@ -1,39 +1,30 @@
-import SelectedLessons from './index'
-import lessonItems from '../../store/staticData/all-lessons'
+import { SelectedLessons } from "./";
+import lessonsData from "../../store/staticData/all-lessons";
 
-const props = {
-  selectedLessons: {
-    isLoading: false,
-    data: []
-  },
-  allLessons: lessonItems
+let props = {
+  lessons: lessonsData,
+  isLoading: false,
+  selectedLessons: [],
 }
 
 describe('<SelectedLessons /> component', () => {
   
   it('should render', () => {
-    const component = shallow(<SelectedLessons {...props} />)
+    const component = shallow(<SelectedLessons {...props} />);
     expect(component).toBeTruthy()
-  })
+  });
 
-  it('should display the correct name for the first item', () => {
-    // write test here
-  })
+  it('should disable the submit button if there are no lessons selected', () => {
+    const component = shallow(<SelectedLessons {...props} />);
+    expect(component.find('button').prop("disabled")).toBeTruthy();
+  });
 
-  it('should display the right number of items', () => {{
-    // write test here
-  })
+  // it('should enable the submit button if there are any lessons selected', () => {
+  //   // write test here
+  // })
 
-  it('should disable form if the data is being saved', () => {{
-    // write test here
-  })
-
-  it('should disable the submit button if there are no lessons selected', () => {{
-    // write test here
-  })
-
-  it('should enable the submit button if there are any lessons selected', () => {{
-    // write test here
-  })
+  // it('should disable form if the data is being saved', () => {
+  //   // write test here
+  // })
 
 })

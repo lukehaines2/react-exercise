@@ -32,6 +32,7 @@ export const updateSelectedLessons = lessonsIds => {
       setTimeout( () => {
         // "before catching the error and returning a successful response"
         dispatch(updateSelectedLessonsSuccess(body.lessonsIds));
+        // 1.5s delay to make sure we see the disabled state while submitting
       }, 1500);
     }
   };

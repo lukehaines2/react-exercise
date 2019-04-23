@@ -8,7 +8,7 @@ import "./selectedLessons.scss";
 import { updateSelectedLessons } from "../../actions/updateSelectedLessons";
 import { getCheckboxLessons } from "../../store/selectors/getCheckboxLessons";
 
-class SelectedLessons extends Component {
+export class SelectedLessons extends Component {
   constructor(props) {
     super(props);
     this.handleSelection = this.handleSelection.bind(this);
@@ -19,21 +19,22 @@ class SelectedLessons extends Component {
   }
 
   handleSelection(id, checked) {
-    let newArr = this.state.selectedLessons;
+    let newLessons = this.state.selectedLessons;
     if (checked) {
-      newArr = newArr.filter((lesson) => lesson !== id );
+      // Remove from array rather than pushing a duplicate
+      newLessons = newLessons.filter((lesson) => lesson !== id );
     } else {
-      newArr.push(id);
+      newLessons.push(id);
     }
     this.setState({
-      selectedLessons: newArr
+      selectedLessons: newLessons
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    // send the arr
-    this.props.updateSelectedLessons(this.state.selectedLessons)
+    // send the arr to BE
+    this.props.updateSelectedLessons(this.state.selectedLessons);
   }
 
   render() {
@@ -41,7 +42,7 @@ class SelectedLessons extends Component {
     const btnDisabled = isLoading || !this.state.selectedLessons.length;
     return (
       <div className="lessonsContainer">
-        <form onSubmit={this.handleSubmit} disabled={true}>
+        <form onSubmit={this.handleSubmit}>
           <h3>Lessons List:</h3>
           <CheckboxList {...{lessons, isLoading}} handleSelection={this.handleSelection} />
           <button disabled={btnDisabled}>Submit</button>
@@ -50,7 +51,6 @@ class SelectedLessons extends Component {
     )
   }
 }
-
 
 
 const mapStateToProps = state => {
